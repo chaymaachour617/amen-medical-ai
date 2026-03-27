@@ -8,7 +8,7 @@ import app.models.session
 import app.models.alert
 import app.models.message
 import app.models.safety_log
-from app.api.routes import patient, exam, session, message
+from app.api.routes import patient, exams, session, message, alerts
 
 
 app = FastAPI(
