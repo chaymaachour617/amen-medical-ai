@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.db.session import SessionLocal
-from app.schemas.exam import ExamCreate, ExamUpdate, ExamResponse
+from app.schemas.exam_schema import ExamCreate, ExamUpdate, ExamResponse
 from app.services import exam_service
 
 router = APIRouter(prefix="/exams", tags=["Exams"])
