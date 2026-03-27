@@ -3,6 +3,7 @@ from fastapi import HTTPException
 from app.models.message import Message
 
 
+
 def create_message(db: Session, message_data: dict):
     message = Message(**message_data)
     db.add(message)

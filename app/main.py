@@ -5,10 +5,11 @@ from app.db.session import engine
 import app.models.patient
 import app.models.exam
 import app.models.session
-import app.models.message
 import app.models.alert
+import app.models.message
 import app.models.safety_log
 from app.api.routes import patient, exam, session, message
+
 
 app = FastAPI(
     title="AMEN Medical AI",

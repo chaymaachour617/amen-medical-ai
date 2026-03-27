@@ -3,6 +3,7 @@ from fastapi import HTTPException
 from app.models.session import Session as ChatSession
 
 
+
 def create_session(db: Session, session_data: dict):
     session = ChatSession(**session_data)
     db.add(session)

@@ -4,6 +4,7 @@ from datetime import date
 from fastapi import HTTPException
 
 
+
 def calculate_age(date_of_birth: date) -> int:
     today = date.today()
     return today.year - date_of_birth.year - (

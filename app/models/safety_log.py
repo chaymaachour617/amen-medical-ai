@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from app.db.base import Base
 
-
 class SafetyLog(Base):
     __tablename__ = "safety_logs"
 

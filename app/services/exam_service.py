@@ -3,6 +3,7 @@ from fastapi import HTTPException
 from app.models.exam import Exam
 
 
+
 def create_exam(db: Session, exam_data: dict):
     exam = Exam(**exam_data)
     db.add(exam)
