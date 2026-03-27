@@ -30,7 +30,7 @@ def test_connection():
         print(" Database connection failed:", e)
 
 app.include_router(patient.router)
-app.include_router(exam.router)
+app.include_router(exams.router)
 app.include_router(session.router)
 app.include_router(message.router)
 
