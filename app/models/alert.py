@@ -7,9 +7,9 @@ class Alert(Base):
     __tablename__ = "alerts"
 
     id = Column(Integer, primary_key=True, index=True)
-    alert_type = Column(String)
-    alert_message = Column(Text)
-    severity = Column(String)
+    alert_type = Column(String, nullable=False)
+    message = Column(Text, nullable=False)
+    severity = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     session_id = Column(Integer, ForeignKey("sessions.id"))
