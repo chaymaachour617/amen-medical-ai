@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Text, DateTime
 from app.db.base import Base
-from datetime import datetime
+from datetime import datetime, timezone
 
 class Patient(Base):
     __tablename__ = "patients"
@@ -12,4 +12,4 @@ class Patient(Base):
     gender = Column(String, nullable=False)
     medical_conditions = Column(Text)
     allergies = Column(Text)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, timezone
 from app.db.base import Base
 
 class SafetyLog(Base):
@@ -11,7 +11,6 @@ class SafetyLog(Base):
     original_output = Column(Text)
     modified_output = Column(Text)
     action_taken = Column(String)
-    timestamp = Column(DateTime, default=datetime.utcnow)
-
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     message_id = Column(Integer, ForeignKey("messages.id"))
     message = relationship("Message", backref="safety_logs")

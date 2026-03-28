@@ -18,5 +18,5 @@ class AlertResponse(AlertBase):
     id: int
     created_at: datetime
 
-    class Config:
+class Config:
         from_attributes = True

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, timezone
 from app.db.base import Base
 
 class Alert(Base):
@@ -10,7 +10,6 @@ class Alert(Base):
     alert_type = Column(String, nullable=False)
     message = Column(Text, nullable=False)
     severity = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-
-    session_id = Column(Integer, ForeignKey("sessions.id"))
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    session_id = Column(Integer, ForeignKey("sessions.id"),nullable=False)
     session = relationship("Session", backref="alerts")

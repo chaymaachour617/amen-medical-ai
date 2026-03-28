@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, timezone
 from app.db.base import Base
 
 class Message(Base):
@@ -9,7 +9,7 @@ class Message(Base):
     id = Column(Integer, primary_key=True, index=True)
     sender = Column(String, nullable=False)
     content = Column(Text, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     llm_model = Column(String)
     was_modified = Column(Boolean, default=False)
 
