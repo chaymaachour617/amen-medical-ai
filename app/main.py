@@ -9,7 +9,7 @@ import app.models.alert
 import app.models.message
 import app.models.safety_log
 from app.api.routes import patient, exams, session, message, alerts
-
+from app.api.routes import assistant
 
 app = FastAPI(
     title="AMEN Medical AI",
@@ -33,7 +33,7 @@ app.include_router(patient.router)
 app.include_router(exams.router)
 app.include_router(session.router)
 app.include_router(message.router)
-
+app.include_router(assistant.router)
 
 
 Base.metadata.create_all(bind=engine)       
