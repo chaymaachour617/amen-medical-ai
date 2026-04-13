@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.db.session import SessionLocal
+from app.db.database import SessionLocal
 from app.schemas.alert_schema import AlertCreate, AlertResponse
 from app.services import alert_service
 

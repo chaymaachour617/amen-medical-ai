@@ -12,5 +12,5 @@ class Exam(Base):
     preparation_type = Column(String)
     status = Column(String)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
-    patient_id = Column(Integer, ForeignKey("patients.id"))
+    patient_id = Column(Integer, ForeignKey("patients.id"), nullable=False)
     patient = relationship("Patient", backref="exams")

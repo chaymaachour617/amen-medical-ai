@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.db.session import get_db
+from app.db.database import get_db
 from app.assistant.llm_client import query_gemini
 from app.assistant.prompt_builder import build_prompt
 from app.assistant.safety_layer import pre_check

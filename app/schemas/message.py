@@ -7,6 +7,7 @@ class MessageBase(BaseModel):
     content: str
     role: str
     session_id: int
+    sender: Optional[str] = None
 
 
 class MessageCreate(MessageBase):
@@ -15,7 +16,9 @@ class MessageCreate(MessageBase):
 
 class MessageResponse(MessageBase):
     id: int
-    created_at: datetime
+    timestamp: datetime
+    llm_model: Optional[str] = None
+    was_modified: bool = False   
 
     class Config:
         from_attributes = True

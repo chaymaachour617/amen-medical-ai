@@ -7,7 +7,8 @@ class Message(Base):
     __tablename__ = "messages"
 
     id = Column(Integer, primary_key=True, index=True)
-    sender = Column(String, nullable=False)
+    role = Column(String, nullable=False)
+    sender = Column(String, nullable=True)
     content = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     llm_model = Column(String)

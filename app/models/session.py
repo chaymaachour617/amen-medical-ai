@@ -11,5 +11,5 @@ class Session(Base):
     ended_at = Column(DateTime)
     session_status = Column(String)
 
-    patient_id = Column(Integer, ForeignKey("patients.id"))
+    patient_id = Column(Integer, ForeignKey("patients.id"), nullable=False)
     patient = relationship("Patient", backref="sessions")

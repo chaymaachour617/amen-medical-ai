@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-
+from typing import Optional
 
 class SessionBase(BaseModel):
     patient_id: int
@@ -12,7 +12,9 @@ class SessionCreate(SessionBase):
 
 class SessionResponse(SessionBase):
     id: int
-    created_at: datetime
+    started_at: datetime
+    ended_at: Optional[datetime] = None
+    session_status: Optional[str] = None
 
     class Config:
         from_attributes = True
